@@ -198,7 +198,7 @@ const About = () => {
               <FaUtensils className="text-5xl text-orange-500 mx-auto" />
             </motion.div>
             <h1 className="text-4xl font-bold mb-4">About Us</h1>
-            <p className="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            <p className="text-lg max-w-2xl mx-auto text-black dark:text-white">
               Discover our passion for crafting exceptional culinary experiences with a Kenyan twist.
             </p>
           </motion.div>

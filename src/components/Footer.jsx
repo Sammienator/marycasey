@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaUtensils, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp, FaHeart, FaClock, FaStar } from 'react-icons/fa';
-import logo from '../assets/mary.png';
+import logo from '../assets/partplaters.svg';
 import '../App.css'
 
 const Footer = () => {
@@ -64,7 +64,7 @@ const Footer = () => {
            </div>
               </motion.div>
               <div>
-                <h3 className="text-xl font-bold">Premium Catering</h3>
+                <h3 className="text-xl font-bold">Party Plater Catering</h3>
                 <p className="text-white/80 text-sm">Excellence in Every Bite</p>
               </div>
             </div>
@@ -115,7 +115,7 @@ const Footer = () => {
                   href="mailto:info@premiumcatering.co.ke"
                   className="text-white/80 hover:text-orange-500 transition-colors duration-300 text-sm"
                 >
-                  info@premiumcatering.co.ke
+                  info@partyplatercatering.com
                 </a>
               </li>
               <li className="flex items-center space-x-3">
@@ -147,7 +147,7 @@ const Footer = () => {
           </div>
 
           <p className="text-white/70 text-sm mb-4">
-            &copy; {new Date().getFullYear()} Premium Catering. All rights reserved. Made with
+            &copy; {new Date().getFullYear()} Party Plater Catering. All rights reserved. Made with
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}

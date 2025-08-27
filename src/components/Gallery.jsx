@@ -4,18 +4,18 @@ import { FaUtensils, FaTools, FaBuilding, FaTruck, FaSearch, FaTimes } from 'rea
 
 
 import delivery1 from '../assets/delivery.jpg';
-import delivery2 from '../assets/delivery.jpg';
-import delivery3 from '../assets/delivery.jpg';
+import delivery2 from '../assets/delivery2.jpg';
+import delivery3 from '../assets/packaging.jpg';
 import cooprate1 from '../assets/cooprate.jpg';
-import cooprate2 from '../assets/cooprate.jpg';
-import cooprate3 from '../assets/cooprate.jpg';
+import cooprate2 from '../assets/dinner.jpg';
+import cooprate3 from '../assets/gear.jpg';
 import equipment1 from '../assets/equipment.jpg';
-import equipment2 from '../assets/equipment.jpg';
-import equipment3 from '../assets/equipment.jpg';
+import equipment2 from '../assets/tool.jpg';
+import equipment3 from '../assets/setup.jpg';
 
-import setup1 from '../assets/setup.jpg';
-import setup2 from '../assets/setup.jpg';
-import setup3 from '../assets/setup.jpg';
+import setup1 from '../assets/tent.jpg';
+import setup2 from '../assets/garden.jpg';
+import setup3 from '../assets/tent2.jpg';
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('all');

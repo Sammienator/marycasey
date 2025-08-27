@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaUtensils, FaCheckCircle, FaExclamationTriangle, FaWhatsapp, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaUtensils, FaCheckCircle, FaExclamationTriangle, FaWhatsapp, FaFacebookF, FaInstagram, FaTwitter, FaUsers, FaCalendarAlt } from 'react-icons/fa';
 
 const Contact = () => {
   const form = useRef();
@@ -13,16 +13,50 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_USER_ID');
+      // Replace with your actual EmailJS credentials
+      await emailjs.sendForm(
+        'service_3rs1t9l',      // Replace with your EmailJS service ID
+        'template_94few0n',     // Replace with your EmailJS template ID
+        form.current,
+        'i_LqlVWCCSNbG8v2z'       // Replace with your EmailJS public key
+      );
       setFormStatus('success');
       form.current.reset();
     } catch (error) {
+      console.error('EmailJS error:', error);
       setFormStatus('error');
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setFormStatus(null), 5000);
     }
   };
+
+  const eventTypes = [
+    { value: '', label: 'Select Event Type' },
+    { value: 'wedding', label: 'Wedding' },
+    { value: 'corporate', label: 'Corporate Event' },
+    { value: 'birthday', label: 'Birthday Party' },
+    { value: 'anniversary', label: 'Anniversary' },
+    { value: 'graduation', label: 'Graduation' },
+    { value: 'conference', label: 'Conference' },
+    { value: 'workshop', label: 'Workshop/Seminar' },
+    { value: 'baby_shower', label: 'Baby Shower' },
+    { value: 'bridal_shower', label: 'Bridal Shower' },
+    { value: 'cocktail', label: 'Cocktail Party' },
+    { value: 'charity', label: 'Charity Event' },
+    { value: 'other', label: 'Other' }
+  ];
+
+  const guestCounts = [
+    { value: '', label: 'Estimated Guest Count' },
+    { value: '1-25', label: '1-25 guests' },
+    { value: '26-50', label: '26-50 guests' },
+    { value: '51-100', label: '51-100 guests' },
+    { value: '101-200', label: '101-200 guests' },
+    { value: '201-300', label: '201-300 guests' },
+    { value: '301-500', label: '301-500 guests' },
+    { value: '500+', label: '500+ guests' }
+  ];
 
   const contactInfo = [
     {
@@ -34,7 +68,7 @@ const Contact = () => {
     {
       icon: <FaEnvelope className="text-xl" />,
       title: 'Email',
-      details: ['info@premiumcatering.co.ke', 'events@premiumcatering.co.ke'],
+      details: ['info@partyplatercatering.com', 'events@partyplatercatering.com'],
       color: 'bg-gray-900 dark:bg-white text-white dark:text-gray-900',
     },
     {
@@ -114,42 +148,102 @@ const Contact = () => {
             >
               <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
               <form ref={form} onSubmit={sendEmail} className="space-y-6">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  required
-                  className="w-full p-4 rounded-full bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-orange-500 focus:outline-none transition-all"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  required
-                  className="w-full p-4 rounded-full bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-orange-500 focus:outline-none transition-all"
-                />
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  required
-                  className="w-full p-4 rounded-full bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-orange-500 focus:outline-none transition-all"
-                />
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  required
-                  rows="4"
-                  className="w-full p-4 rounded-2xl bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-orange-500 focus:outline-none transition-all"
-                ></textarea>
+                {/* Name Field */}
+                <div>
+                  <input
+                    type="text"
+                    name="from_name"
+                    placeholder="Your Full Name *"
+                    required
+                    className="w-full p-4 rounded-full bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-orange-500 focus:outline-none transition-all"
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div>
+                  <input
+                    type="email"
+                    name="from_email"
+                    placeholder="Your Email Address *"
+                    required
+                    className="w-full p-4 rounded-full bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-orange-500 focus:outline-none transition-all"
+                  />
+                </div>
+
+                {/* Event Type and Guest Count Row */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="relative">
+                    <FaCalendarAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70" />
+                    <select
+                      name="event_type"
+                      required
+                      className="w-full p-4 pl-12 rounded-full bg-white/20 text-white border border-white/30 focus:border-orange-500 focus:outline-none transition-all appearance-none"
+                    >
+                      {eventTypes.map((type, index) => (
+                        <option 
+                          key={index} 
+                          value={type.value}
+                          className="bg-gray-800 text-white"
+                          disabled={index === 0}
+                        >
+                          {type.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="relative">
+                    <FaUsers className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70" />
+                    <select
+                      name="guest_count"
+                      required
+                      className="w-full p-4 pl-12 rounded-full bg-white/20 text-white border border-white/30 focus:border-orange-500 focus:outline-none transition-all appearance-none"
+                    >
+                      {guestCounts.map((count, index) => (
+                        <option 
+                          key={index} 
+                          value={count.value}
+                          className="bg-gray-800 text-white"
+                          disabled={index === 0}
+                        >
+                          {count.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Subject Field */}
+                <div>
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    required
+                    className="w-full p-4 rounded-full bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-orange-500 focus:outline-none transition-all"
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div>
+                  <textarea
+                    name="message"
+                    placeholder="Tell us more about your event - date, venue, special requirements, dietary restrictions, etc."
+                    required
+                    rows="5"
+                    className="w-full p-4 rounded-2xl bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-orange-500 focus:outline-none transition-all resize-none"
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full bg-orange-500 text-white py-4 rounded-full font-bold hover:shadow-lg transition-all duration-300 disabled:opacity-70"
+                  className="w-full bg-orange-500 text-white py-4 rounded-full font-bold hover:bg-orange-600 hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Sending Message...' : 'Send Event Inquiry'}
                 </motion.button>
               </form>
 
@@ -161,8 +255,8 @@ const Contact = () => {
                     exit={{ opacity: 0, y: -20 }}
                     className="mt-4 p-4 bg-white/20 rounded-xl flex items-center gap-2 text-sm"
                   >
-                    <FaCheckCircle className="text-green-500" />
-                    Message sent successfully!
+                    <FaCheckCircle className="text-green-400" />
+                    <span>Thank you! We'll get back to you within 24 hours to discuss your event.</span>
                   </motion.div>
                 )}
                 {formStatus === 'error' && (
@@ -172,8 +266,8 @@ const Contact = () => {
                     exit={{ opacity: 0, y: -20 }}
                     className="mt-4 p-4 bg-white/20 rounded-xl flex items-center gap-2 text-sm"
                   >
-                    <FaExclamationTriangle className="text-red-500" />
-                    Error sending message. Please try again.
+                    <FaExclamationTriangle className="text-red-400" />
+                    <span>Error sending message. Please try again or contact us directly.</span>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -192,6 +286,8 @@ const Contact = () => {
                     <motion.a
                       key={index}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
                       className="flex items-center gap-3 p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-all text-sm"
                       aria-label={social.name}
@@ -223,6 +319,15 @@ const Contact = () => {
                       <span>{fact.label}</span>
                     </motion.div>
                   ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold mb-4">Quick Response</h3>
+                <div className="bg-white/10 rounded-xl p-4">
+                  <p className="text-sm mb-2">📞 <strong>Phone consultations:</strong> Available during business hours</p>
+                  <p className="text-sm mb-2">📧 <strong>Email responses:</strong> Within 24 hours</p>
+                  <p className="text-sm">💬 <strong>WhatsApp:</strong> Fastest response for urgent inquiries</p>
                 </div>
               </div>
             </motion.div>
@@ -282,15 +387,17 @@ const Contact = () => {
                 href="tel:+254700123456"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all duration-300 text-sm flex items-center gap-2"
+                className="bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all duration-300 text-sm flex items-center gap-2 justify-center"
               >
                 <FaPhone /> Call Now
               </motion.a>
               <motion.a
                 href="https://wa.me/+254700123456"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm flex items-center gap-2"
+                className="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm flex items-center gap-2 justify-center"
               >
                 <FaWhatsapp /> WhatsApp Us
               </motion.a>

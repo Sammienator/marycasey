@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import { ThemeContext } from './ThemeContext';
-import logo from '../assets/mary.png';
+import logo from '../assets/partplaters.svg';
 import '../App.css';
 
 const Navbar = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
               ':hover': { transform: 'scale(1.1)' },
             }}
           />
-          <span className="text-xl font-bold">Premium Catering</span>
+          <span className="text-xl font-bold">Party Platers</span>
         </motion.div>
 
         <div className="hidden md:flex space-x-6">

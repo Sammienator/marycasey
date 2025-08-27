@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { FaUtensils, FaUsers, FaClock, FaChevronDown, FaPhone,FaTrophy,FaHeart, FaEnvelope } from 'react-icons/fa';
 import food1 from '../assets/food1.jpg';
-import logo from '../assets/mary.png';
+import logo from '../assets/partplaters.svg';
 import '../App.css'
 
 const MotionLink = motion(Link);
@@ -76,7 +76,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
-              Premium Catering
+              Party Plater Caterer's
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 50 }}
