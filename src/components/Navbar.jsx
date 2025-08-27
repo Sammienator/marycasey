@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import { ThemeContext } from './ThemeContext';
-import logo from '../assets/partplaters.svg';
+import logo from '../assets/partyplater.png';
 import '../App.css';
 
 const Navbar = () => {
@@ -39,12 +39,12 @@ const Navbar = () => {
             alt="Logo"
             className="logo"
             style={{
-              height: 50,
+              height: 100,
               transition: 'transform 0.3s ease',
               ':hover': { transform: 'scale(1.1)' },
             }}
           />
-          <span className="text-xl font-bold">Party Platers</span>
+          <span className="text-xl font-bold">Party Platers Catering</span>
         </motion.div>
 
         <div className="hidden md:flex space-x-6">

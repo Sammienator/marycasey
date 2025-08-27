@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaUtensils, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp, FaHeart, FaClock, FaStar } from 'react-icons/fa';
-import logo from '../assets/partplaters.svg';
+import logo from '../assets/partyplater.png';
 import '../App.css'
 
 const Footer = () => {
@@ -58,7 +58,7 @@ const Footer = () => {
                 className="p-3 rounded-full "
               >
                 <div className="flex flex-col items-center">
-              <img src={logo} alt="Logo" className="logo" style={{ height: 90 , transition: 'transform 0.5s ease', ':hover': { transform: 'scale(1.2)'
+              <img src={logo} alt="Logo" className="logo" style={{ height: 140 , transition: 'transform 0.5s ease', ':hover': { transform: 'scale(1.2)'
           }
           }}/>
            </div>

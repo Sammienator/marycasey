@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { FaUtensils, FaUsers, FaClock, FaChevronDown, FaPhone,FaTrophy,FaHeart, FaEnvelope } from 'react-icons/fa';
 import food1 from '../assets/food1.jpg';
-import logo from '../assets/partplaters.svg';
+import logo from '../assets/partyplater.png';
 import '../App.css'
 
 const MotionLink = motion(Link);
@@ -150,7 +150,7 @@ const Home = () => {
             
 
            <div className="flex flex-col items-center">
-              <img src={logo} alt="Logo" className="logo" style={{ height: 90 , transition: 'transform 0.5s ease', ':hover': { transform: 'scale(1.2)'
+              <img src={logo} alt="Logo" className="logo" style={{ height: 150 , transition: 'transform 0.5s ease', ':hover': { transform: 'scale(1.2)'
           }
           }}/>
 
